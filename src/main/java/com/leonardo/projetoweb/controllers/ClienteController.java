@@ -1,5 +1,7 @@
 package com.leonardo.projetoweb.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,4 +43,15 @@ public class ClienteController {
 		mv.addObject("btnForm" , "Cadastrar");
 		return mv;
 	}
+	
+	@GetMapping("/nome/{nome}")
+	public ModelAndView getCliente(@PathVariable String nome) {
+		List<Cliente> clientes = clienteService.findByNome(nome);
+		ModelAndView mv = new ModelAndView("/cliente/cliente");
+		mv.addObject("clientes", clientes);
+		return mv;
+	}
+	
 }
+
+
