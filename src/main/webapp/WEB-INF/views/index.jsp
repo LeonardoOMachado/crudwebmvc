@@ -28,9 +28,6 @@
       <li class="nav-item">
         <a class="nav-link" href="/cadastro">Cadastro</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
-      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="/nome" method="get">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" name="nome">

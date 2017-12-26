@@ -1,11 +1,10 @@
 package com.leonardo.projetoweb.controllers;
 
-import javax.websocket.server.PathParam;
+import java.io.Console;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,9 +35,12 @@ public class IndexController {
 	}
 	
 	@GetMapping("/nome")
-	public ModelAndView getIndex(@RequestParam("nome") String nome) {
+	public ModelAndView getIndex(@RequestParam(name = "nome" , required=true ) String nome) {
 		ModelAndView mv = new ModelAndView("index");
-		mv.addObject("url","/cliente/nome/"+nome);
+		if (nome.trim().isEmpty())
+			mv.addObject("url","/cliente");
+		else
+			mv.addObject("url","/cliente/nome/"+nome);
 		return mv;
 	}
 	
